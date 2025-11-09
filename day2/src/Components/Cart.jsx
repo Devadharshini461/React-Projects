@@ -31,26 +31,25 @@ function Cart() {
   }
   //  localStorage.setItem('list', (JSON.stringify(cartList)||'[]'))
 
-  
+
   return (
-    <div className="cart-container">
-      <NavPage />
-      {/* <h2>Your Cart</h2> */}
-      
-      {cartItems.length === 0 ? (
-        <p>Fill your cart!!!</p>
-      ) : (
-        <>
-        <div className="info">
+    <>
+    <NavPage />
+    <div style={{ padding: '20px' }} className='cart'>
+       {/* <h2>Your Cart</h2> */}
+      {cartItems.length === 0 ?
+        (<p>Fill your cart!!!</p>) :
+        (<>
           {cartList}
           <h3>Grand Total: ${totalAmount}</h3>
+          <>
           <Link to='/ProductPage'><button >Products</button></Link>
-          <Link to='/Buy'><button >SHOP NOW</button></Link>
-          </div>
-        </>
-      )}
-
+          <Link to='/Buy'><button >SHOP NOW</button></Link> 
+          </>
+          </>)}
+          
     </div>
+    </>
   );
 }
 

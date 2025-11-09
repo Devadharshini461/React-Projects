@@ -7,15 +7,20 @@ function ProductCard(props) {
     const Index = cart.findIndex(item => item.name === props.name);
 
     const saveStorage = (qty) => {
-
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const Index = cart.findIndex(item => item.name === props.name);
 
         if (Index !== -1) {
-            qty = cart[Index].quantity + qty
-            cart[Index].quantity = qty;
-            cart[Index].totalPrice = cart[Index].price * qty;
+            const newQty = cart[Index].quantity + qty;
+            if (newQty > 0) {
+                cart[Index].quantity = newQty;
+                cart[Index].totalPrice = cart[Index].price * newQty;
+            }
+            else {
+                cart.splice(Index, 1);
+            }
         }
-
-        else {
+        else if (qty > 0) {
             cart.push({
                 name: props.name,
                 price: props.price,
@@ -25,50 +30,21 @@ function ProductCard(props) {
             });
         }
 
-        const updatedCart = cart.filter(item => item.quantity > 0);
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        localStorage.setItem('cart', JSON.stringify(cart));
     };
 
-    function add() {
-        if (Index !== -1) {
-            const newQty = cart[Index].quantity + 1;
-            setQuantity(newQty);
-            saveStorage(1);
-        }
-        else {
-            const newQty = quantity + 1;
-            setQuantity(newQty);
-            saveStorage(1);
 
-        }
+    function add() {
+        const newQty = quantity + 1;
+        setQuantity(newQty);
+        saveStorage(1);
     }
 
     function remove() {
-        if (Index !== -1) {
-            if (cart[Index].quantity > 0) {
-                const newQty = cart[Index].quantity - 1;
-                setQuantity(newQty);
-                saveStorage(-1);
-            }
-            else {
-                const newQty = 0;
-                setQuantity(newQty);
-                saveStorage(-1);
-            }
-        }
-        else {
-            if (quantity > 0) {
-                const newQty = quantity - 1;
-                setQuantity(newQty);
-                saveStorage(-1);
-            }
-            else {
-                const newQty = 0;
-                setQuantity(newQty);
-                saveStorage(-1);
-            }
-        }
-
+            const newQty = quantity - 1;
+            setQuantity(newQty);
+            saveStorage(-1);
+        
     }
 
     function reset() {
@@ -85,10 +61,11 @@ function ProductCard(props) {
             <p>{props.total}</p>
             {/* <p>{quantity}</p> */}
             <div className='buttons'>
-                <button onClick={() => { remove(); }}>-</button>
-                <button>{quantity}</button>
+                <button onClick={remove}>-</button>
+                <button>{Index !== -1 ? cart[Index].quantity : 0}</button>
                 {/* <button onClick={() => { reset(); }}>Reset</button> */}
-                <button onClick={() => { add(); }}>+</button></div>
+                <button onClick={add}>+</button>
+            </div>
         </div>
     )
 

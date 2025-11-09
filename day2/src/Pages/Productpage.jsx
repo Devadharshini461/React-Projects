@@ -24,8 +24,9 @@ function Productpage() {
         <ProductCard link='.\src\assets\washing machine.jpg' name='Washing Machine' price={53000}/>
         <ProductCard link='.\src\assets\microwaveoven.jpg' name='Microwave Oven' price={9150}/>
         {/* <ProductCard link='.\src\assets\hometheatre.jpg' name='Home Theatre' price={4299}/>   */}
+    
+    <Link to='/Cart'><button className='buttonpp' >Move to cart</button></Link>
     </div>
-    <Link to='/Cart'><button >Move to cart</button></Link>
     </>
   )
 }

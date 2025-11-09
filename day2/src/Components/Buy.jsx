@@ -14,8 +14,9 @@ function Buy() {
         }
     
   return (
-    <div>
-        <NavPage/>
+    <>
+    <NavPage/>
+    <div className='buy'>
         <label >Receiver's Name</label>
         <input id='name' type='text' placeholder='Enter Name'></input><br></br>
         <label >Address</label>
@@ -32,6 +33,7 @@ function Buy() {
         </select><br></br>
        <Link to='/Confirm'><button onClick={()=>{details();}}>Confirm</button></Link> 
     </div>
+    </>
   )
 }
 

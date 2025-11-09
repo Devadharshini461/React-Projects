@@ -3,19 +3,19 @@ import Cart from './Cart'
 import NavPage from '../Pages/Navpage'
 import { Route } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Confirm() {
     // const cartData = JSON.parse(localStorage.getItem('cart')) || [];
     // const [cartItems, setCartItems] = useState(cartData);
-    function buy() {
-        localStorage.removeItem('cart');
-        // setCartItems([]);
-    }
+
 
     const name = JSON.parse(localStorage.getItem('name'))
     const add = JSON.parse(localStorage.getItem('add'))
     const pin = JSON.parse(localStorage.getItem('pin'))
     const mode = JSON.parse(localStorage.getItem('selected'))
+    const navigate = useNavigate();
+
     // const d1 = new Date()
     // const d = d1.getDate();
     // const m = d1.getMonth();
@@ -24,11 +24,17 @@ function Confirm() {
     // console.log(date)
     // const ddate=date.setDate(8);
 
+    function buy() {
+        localStorage.removeItem('cart');
+        // setCartItems([]);
+    }
+
     function mpin() {
         if (document.getElementById('mpin').value.length == 4) {
-            alert("Your product is ready to dispatch!!!")
-            document.getElementById('mpin').value = '';
-            buy();
+            // alert(` ${amt} Received!! \n Your product is ready to dispatch!!!`)
+            // document.getElementById('mpin').value = '';
+            // buy();
+            navigate('/Thankyou');
 
         }
         else {
@@ -37,19 +43,38 @@ function Confirm() {
 
         }
     }
-    if (mode === 'Phone Pay' || mode === 'GPay') {
+    if (mode === 'Phone Pay' || mode === 'Gpay') {
         return (
-            <div>
+            <>
                 <NavPage />
-                <p>Reciever's name:{name}</p>
-                <p>Address:{add}</p>
-                <p>Pincode:{pin}</p>
-                {/* <p>Delivered by:{ddate}</p> */}
-                <label>Enter your MPIN:</label>
-                <input type='number' id='mpin'></input><br></br>
-                <Link to='/Home'><button onClick={() => { mpin(); }}>Proceed to PAY</button></Link>
-            </div>
+                <div className='confirm'>
+                    <p>Reciever's name:{name}</p>
+                    <p>Address:{add}</p>
+                    <p>Pincode:{pin}</p>
+                    {/* <p>Delivered by:{ddate}</p> */}
+                    <label>Enter your MPIN:</label>
+                    <input type='number' id='mpin'></input><br></br>
+                    <button onClick={() => { mpin(); }}>Proceed to PAY</button>
+                </div>
+            </>
         )
+    }
+    // else if(mode=='Cash on Delivery'){
+    else {
+        return (
+            <>
+                <NavPage />
+                <div className='confirm'>
+                    <p>Reciever's name:{name}</p>
+                    <p>Address:{add}</p>
+                    <p>Pincode:{pin}</p>
+                    {/* <p>Delivered by:{ddate}</p> */}
+                    <p>Your Order is Ready to dispatch!!</p>
+                    <Link to='/'><button onClick={() => { buy(); }} >Move to Home</button></Link>
+                </div>
+            </>
+
+        );
     }
 }
 
