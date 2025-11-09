@@ -1,0 +1,329 @@
+/* :root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
+
+.Product {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #f1f3f6;
+  padding: 20px;
+}
+
+/* Overall card styling */
+.div {
+  width: 250px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 15px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for card */
+.div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Product image */
+.div img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Product name */
+.div h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #212121;
+  margin: 8px 0 4px;
+}
+
+/* Price styling */
+.div p:nth-of-type(1) {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #388e3c; /* Flipkart green for price */
+  margin: 5px 0;
+}
+
+/* Quantity display */
+.div p:nth-of-type(2) {
+  font-size: 1rem;
+  color: #555;
+  margin: 8px 0;
+}
+
+/* Buttons */
+.div button {
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* + and - button styling */
+.div button:first-of-type,
+.div button:last-of-type {
+  background-color: #2874f0;
+  color: white;
+}
+
+/* Reset button styling */
+.div button:nth-of-type(2) {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Hover effects */
+.div button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+/* Reset default spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* logo left, links right */
+  align-items: center;
+  background-color: #222; /* dark background */
+  color: white;
+  padding: 15px 40px;
+}
+
+/* Logo styling */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00bcd4; /* cyan highlight color */
+}
+
+/* Links styling */
+.links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.links li {
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  font-size: larger;
+  transition: color 0.3s ease;
+}
+
+.links li a{
+  
+  text-decoration: none;
+  font-size: larger;
+  color: #00bcd4;
+  
+}
+
+.links li:hover {
+  color: #00bcd4;
+
+}
+.buttons{
+  background-color: #2874f0;
+  width:fit-content;
+  margin-left: 50px;
+  border-radius: 5px;
+}
+
+/* Cart.css - very simple & clean styles */
+
+.cart-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: 20px auto;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+}
+
+.empty-msg {
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 40px 0;
+  color: #666;
+}
+
+/* layout for each product in cart */
+.cart-item {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  margin-bottom: 12px;
+  background: #fafafa;
+}
+
+/* image sizing */
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+/* text column */
+.cart-item .info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cart-item h3 {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-item p {
+  margin: 2px 0;
+  font-size: 0.92rem;
+  color: #444;
+}
+
+/* totals and buttons area */
+.cart-footer {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.grand-total {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.cart-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.cart-buttons button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cart-buttons button:hover {
+  background: #f1f1f1;
+}
+
+/* small screens */
+@media (max-width: 480px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item img {
+    width: 100%;
+    height: 160px;
+  }
+}
+
+/* .Home{
+  background-image: url('/src/assets/Home.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+} */

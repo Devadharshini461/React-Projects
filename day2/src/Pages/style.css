@@ -1,0 +1,7 @@
+.product{
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #f1f3f6;
+  padding: 20px;
+}

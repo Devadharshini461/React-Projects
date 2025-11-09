@@ -1,0 +1,15 @@
+.butcard{
+    border: 2px solid black;
+    margin:12px;
+    padding:12px 18px;
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
+button{
+    border:1px solid black;
+    margin-left: 5px;;
+}
