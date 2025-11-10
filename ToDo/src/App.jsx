@@ -1,5 +1,6 @@
 import React from 'react'
 import Input from './components/Input'
+import Admin from '../../day3 notes'
 
 function App() {
   return (
@@ -8,5 +9,6 @@ function App() {
     </div>
   )
 }
+
 
 export default App

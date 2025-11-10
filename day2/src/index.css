@@ -527,8 +527,26 @@ text-decoration: none;
 }
 
 
-/* .Home{
+.Home{
   background-image: url('/src/assets/Home.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-} */
+}
+
+.centre{
+  margin-left: 585px;
+  margin-top: 220px;
+  border:2px solid black;
+  width:fit-content;
+  padding:18px;
+  border-radius: 8px;
+
+}
+
+.centre button{
+  margin-left: 105px;
+  margin-top: 20px;
+  padding:6px;
+  background-color:#2874f0;
+  border-radius: 4px;
+}

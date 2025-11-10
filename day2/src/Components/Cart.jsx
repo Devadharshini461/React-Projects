@@ -43,7 +43,7 @@ function Cart() {
           {cartList}
           <h3>Grand Total: ${totalAmount}</h3>
           <>
-          <Link to='/ProductPage'><button >Products</button></Link>
+          <Link to='/ProductPage'><button >PRODUCTS</button></Link>
           <Link to='/Buy'><button >SHOP NOW</button></Link> 
           </>
           </>)}
