@@ -407,11 +407,12 @@ body {
 }
 
 .buttonpp {
-  display: block;
+  /* display: block; */
   /* margin-left: 260px; */
   padding: 18px;
   border: 1px solid #ccc;
   border-radius: 6px;
+  margin-left: 20px;
   background: white;
   cursor: pointer;
 }
